@@ -1,19 +1,39 @@
-#0.0.1v creator AMIR
+#0.0.1v creator AMIR 
 #This program is simulatoin of Enigma machine 
 #If u dont know about Enigma machine dont try to use this program 
-#Github : amirdevlops/path 
+#Github : https://github.com/amirdevlops/EnigmaMachine/
+
+#<----------------------**ALGORITHEM**---------------------------->#
+# 1) Taking the input and converting the string into an list 
+# 2) Then passing that list to PlugBoard() where it return the encrypted value of the selected word 
+# 3) Remove the none char and sotore it on list name filteredlist[]
+# 4) passing each char of filteredlist to rotorone() function using for in loop
+# 5) calling incremnt() 
+# 6) appending encrypted char in Roteres_list[] list 
+# 7) calling rotortwo() function and passing the ROteres_list[] 
+# 8) storing the value in rotoretwores varibale and appending into rotortworeslist[]
+# 9) storing the data in rotorthreecharlist[] list 
+# 10) Now the data is send back to the PlugBoard() funciton which again change its setting 
+# 11) removing none char and printing the result 
+
+
+
+
 
 #taking user input 
 print("<<--------------------------------Enigma Machine-------------------------------->>")
-print("This program is the semulation Of ENIGMA MACHINE ")
+print("This program is the semulation Of ENIGMA MACHINE")
 
 #variables 
 
-file_save = 0
+
 arr = []
 PlugBoardlist = []
 Roteres_list = []
 rotortworeslist = []
+rotorthreecharlist = []
+finallist = []
+
 #settings 
 listofplugbords = ["a" , "o" , "i" , "r", "q" , "v" , "c" , "z" ,"k" , "s"]
 print(listofplugbords , " : PlugBoard Setting ")
@@ -74,11 +94,38 @@ wt = 18
 xt = 12
 yt = 14
 zt = 7
-print(at ,bt ,ct ,dt ,et ,ft, gt ,ht ,it ,jt , kt, lt ,mt,  nt, ot ,pt ,qt, rt ,st ,  tt, ut ,vt ,wt, xt,  yt,  zt , " : Rotor 1 Num")
+print(at ,bt ,ct ,dt ,et ,ft, gt ,ht ,it ,jt , kt, lt ,mt,  nt, ot ,pt ,qt, rt ,st ,  tt, ut ,vt ,wt, xt,  yt,  zt , " : Rotor 2 Num")
 
+#there is some variables for rotor three so it can have its own idendity 
 
+athree = 25
+bthree = 17
+cthree = 11
+dthree = 2
+ethree = 19
+fthree = 16
+gthree = 9
+hthree = 24
+kthree = 13
+ithree = 21
+jthree = 6
+lthree = 8
+mthree = 23
+nthree = 10
+othree = 4
+pthree = 1
+qthree = 22
+rthree = 20
+sthree = 5
+tthree = 15
+uthree = 0
+vthree = 3
+wthree = 18
+xthree = 12
+ythree = 14
+zthree = 7
 
-
+print(athree , bthree , cthree , dthree , ethree , fthree,  gthree , hthree, kthree , ithree, jthree, lthree, mthree, nthree, othree, pthree,qthree, rthree, sthree, tthree, uthree, vthree, wthree, xthree , ythree, zthree ,": Rotor 3 NUM")
 #Functions
 
 def PlugBoard(a):
@@ -92,9 +139,10 @@ def PlugBoard(a):
 
 
 #some doucmention so u can create an copy
-#this is function name Plugboard() this function is in from enogma machine where is a boaed where u change the latter first
+#this is function name Plugboard() this function is in from enogma machine where is a board is used to change the latter first
 #this is an basic type of encryption 
-#as enigma machine support only 10 latters at a time so i have make it for only 10 words which can be changed by the user or am self mode which i will create later 
+#as enigma machine support only 10 latters at a time in the PLUGBOARD so i have make it for only 10 words which can be changed by the user or am self mode which i will create later 
+
 #this function basicly checks if there is any workd match which is present in thes list name listofplugboards where 1o letters are presented if any of them matche the 
 #function simply returns the respected  list char : listofencryptedplugboards its simple as fouck u fool
 
@@ -185,7 +233,7 @@ def incremnt():
     s =  s + 1
     if(s == 26):
         s = 0
-        #incremnttwo()
+        
 
     t = t + 1
     if(t == 26):
@@ -272,6 +320,7 @@ def incremnttwo():
     kt =  kt + 1
     if(kt == 26):
         kt = 0
+        incremnthree()                      #classing this to increament the thredrotor 
     lt =  lt + 1
     if(lt == 26):
         lt = 0
@@ -319,6 +368,117 @@ def incremnttwo():
     zt = zt + 1
     if(zt == 26):
         zt = 0 
+
+
+
+def incremnthree():
+    global athree
+    global bthree 
+    global cthree 
+    global dthree
+    global ethree
+    global fthree 
+    global gthree 
+    global hthree
+    global ithree 
+    global jthree 
+    global kthree 
+    global lthree 
+    global mthree 
+    global nthree 
+    global othree 
+    global pthree 
+    global qthree
+    global rthree
+    global sthree 
+    global tthree 
+    global uthree
+    global vthree 
+    global wthree
+    global xthree 
+    global ythree 
+    global zthree 
+    athree = athree + 1
+    
+    if(athree == 26):
+        athree = 0
+    bthree =  bthree + 1
+    if(bthree == 26):
+        bthree = 0
+    cthree =  cthree + 1
+    if(cthree == 26):
+        cthree = 0
+    dthree = dthree + 1
+    if(dthree == 26):
+        dthree = 0
+    ethree = ethree  + 1
+    if (ethree == 26):
+        ethree = 0
+    fthree =  fthree + 1
+    if(fthree == 26):
+        fthree = 0
+    gthree =  gthree + 1
+    if(gthree == 26):
+        gthree = 0
+    hthree = hthree + 1
+    if(hthree == 26):
+        hthree= 0
+    ithree =  ithree + 1
+    if(ithree == 26):
+        ithree = 0
+    jthree =  jthree + 1
+    if(jthree == 26):
+        jthree = 0
+    kthree =  kthree + 1
+    if(kthree == 26):
+        kthree = 0
+    lthree =  lthree + 1
+    if(lthree == 26):
+        lthree = 0
+    mthree =  mthree + 1
+    if(mthree == 26):
+        mthree = 0
+    nthree =  nthree + 1
+    if(nthree == 26):
+        nthree = 0
+    othree =  othree + 1
+    if(othree == 26):
+        othree = 0
+    pthree =  pthree + 1
+    if(pthree == 26):
+        pthree = 0
+    qthree =  qthree + 1
+    if(qthree == 26):
+        qthree = 0
+    rthree = rthree + 1
+    if(rthree == 26):
+        rthree = 0
+    sthree =  sthree + 1
+    if(sthree == 26):
+        sthree = 0
+        
+
+    tthree = tthree + 1
+    if(tthree == 26):
+        tthree = 0 
+    uthree = uthree + 1
+    if(uthree == 26):
+        uthree = 0
+    vthree = vthree + 1
+    if(vthree == 26):
+        vthree = 0 
+    wthree = wthree + 1
+    if(wthree == 26):
+        wthree = 0
+    xthree = xthree + 1
+    if(xthree == 26):
+        xthree = 0
+    ythree = ythree + 1
+    if(ythree == 26):
+        ythree = 0 
+    zthree = zthree + 1
+    if(zthree == 26):
+        zthree = 0 
 
 
 
@@ -451,68 +611,68 @@ def rotortwo(rtwo):
 #temporoy fix
 #i have created this function simple where it just match the char and return the recpected index char
 
-def rotorthree(rthree):
+def rotorthree(rthreeInput):
     rouoronelist = ['t', 'l', 'o', 'z', 's', 'a', 'y', 'g', 'x', 'b', 'k', 'p', 'e', 'v', 'd', 'm', 'h', 'i', 'n', 'w', 'c', 'u', 'q', 'f', 'k', 't']
     
 
 
-    if(rthree == "a"):
-        return rouoronelist[at]
+    if(rthreeInput == "a"):
+        return rouoronelist[athree]
         
-    if(rtwo == "b"):
-        return rouoronelist[bt]
-    if(rtwo == "c"):
-        return rouoronelist[ct]
-    if(rtwo == "d"):
-        return rouoronelist[dt]
-    if(rtwo == "e"):
-        return rouoronelist[et]
-    if(rtwo == "f"):
-        return rouoronelist[ft]
-    if(rtwo == "g"):
-        return rouoronelist[gt]
-    if(rtwo == "h"):
-        return rouoronelist[ht]
-    if(rtwo == "k"):
-        return rouoronelist[kt]
-    if(rtwo == "i"):
-        return rouoronelist[it]
-    if(rtwo == "j"):
-        return rouoronelist[jt]
-    if(rtwo == "j"):
-        return rouoronelist[jt]
-    if(rtwo == "l"):
-        return rouoronelist[lt]
-    if(rtwo == "m"):
-        return rouoronelist[mt]
-    if(rtwo == "n"):
-        return rouoronelist[nt]
-    if(rtwo == "o"):
-        return rouoronelist[ot]
-    if(rtwo == "p"):
-        return rouoronelist[pt]
-    if(rtwo == "q"):
-        return rouoronelist[qt]
-    if(rtwo == "r"):
-        return rouoronelist[rt]
-    if(rtwo == "s"):
-        return rouoronelist[st]
-    if(rtwo == "t"):
-        return rouoronelist[tt]
-    if(rtwo == "u"):
-        return rouoronelist[ut]
-    if(rtwo == "v"):
-        return rouoronelist[vt]
-    if(rtwo == "w"):
-        return rouoronelist[wt]
-    if(rtwo == "x"):
-        return rouoronelist[xt]
-    if(rtwo == "y"):
-        return rouoronelist[yt]
-    if(rtwo == "z"):
-        return rouoronelist[zt]
+    if(rthreeInput == "b"):
+        return rouoronelist[bthree]
+    if(rthreeInput == "c"):
+        return rouoronelist[cthree]
+    if(rthreeInput == "d"):
+        return rouoronelist[dthree]
+    if(rthreeInput == "e"):
+        return rouoronelist[ethree]
+    if(rthreeInput == "f"):
+        return rouoronelist[fthree]
+    if(rthreeInput == "g"):
+        return rouoronelist[gthree]
+    if(rthreeInput == "h"):
+        return rouoronelist[hthree]
+    if(rthreeInput == "k"):
+        return rouoronelist[kthree]
+    if(rthreeInput == "i"):
+        return rouoronelist[ithree]
+    if(rthreeInput == "j"):
+        return rouoronelist[jthree]
+    if(rthreeInput == "j"):
+        return rouoronelist[jthree]
+    if(rthreeInput == "l"):
+        return rouoronelist[lthree]
+    if(rthreeInput == "m"):
+        return rouoronelist[mthree]
+    if(rthreeInput == "n"):
+        return rouoronelist[nthree]
+    if(rthreeInput == "o"):
+        return rouoronelist[othree]
+    if(rthreeInput == "p"):
+        return rouoronelist[pthree]
+    if(rthreeInput == "q"):
+        return rouoronelist[qthree]
+    if(rthreeInput == "r"):
+        return rouoronelist[rthree]
+    if(rthreeInput == "s"):
+        return rouoronelist[sthree]
+    if(rthreeInput == "t"):
+        return rouoronelist[tthree]
+    if(rthreeInput == "u"):
+        return rouoronelist[uthree]
+    if(rthreeInput == "v"):
+        return rouoronelist[vthree]
+    if(rthreeInput == "w"):
+        return rouoronelist[wthree]
+    if(rthreeInput == "x"):
+        return rouoronelist[xthree]
+    if(rthreeInput == "y"):
+        return rouoronelist[ythree]
+    if(rthreeInput == "z"):
+        return rouoronelist[zthree]
     else:
-        return rouoronelist[wt]
+        return rouoronelist[wthree]
 
 
 #Main body 
@@ -529,7 +689,7 @@ for userip in userInput:         # converting user input into an array
 for lenofarr in range(len(arr)):
 
     plugboardchar = PlugBoard(arr[lenofarr])
-    if not plugboardchar:
+    if not plugboardchar:                       #if plug borad retun none value then use the orignal ones 
         PlugBoardlist.append(arr[lenofarr]) 
     
     
@@ -555,5 +715,19 @@ for test in range(len(Roteres_list)):
 
 for charinrtwo in range(len(rotortworeslist)):
     print(rotortworeslist[charinrtwo] ," : thats rotor two response")
-    rotortworeslist
+    rotorthreeresponse = rotorthree(rotortworeslist[charinrtwo])
+    print(rotortworeslist[charinrtwo] , ": this is pass to rotor three")
+    print(rotorthreeresponse , ": this rotor three reponse ")
+    rotorthreecharlist.append(rotorthreeresponse)
 
+for charinrthreeres in range(len(rotorthreecharlist)):
+    final = PlugBoard(rotorthreecharlist[charinrthreeres])
+
+    if not final:
+        finallist.append(rotorthreecharlist[charinrthreeres])
+    
+    finallist.append(final)
+filtered_list3 = [item for item in finallist if item is not None]
+
+
+print("ENCODED : " , filtered_list3)
