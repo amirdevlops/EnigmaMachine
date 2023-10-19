@@ -26,7 +26,7 @@ print("This program is the semulation Of ENIGMA MACHINE")
 
 #variables 
 
-
+finalstring = ""
 arr = []
 PlugBoardlist = []
 Roteres_list = []
@@ -127,6 +127,16 @@ zthree = 7
 
 print(athree , bthree , cthree , dthree , ethree , fthree,  gthree , hthree, kthree , ithree, jthree, lthree, mthree, nthree, othree, pthree,qthree, rthree, sthree, tthree, uthree, vthree, wthree, xthree , ythree, zthree ,": Rotor 3 NUM")
 #Functions
+
+
+#this is simple function which converts list to string 
+
+def listtostring(l):
+    emptystring = ""
+    for word in l :
+        emptystring += word
+    return emptystring
+
 
 def PlugBoard(a):
     
@@ -729,5 +739,6 @@ for charinrthreeres in range(len(rotorthreecharlist)):
     finallist.append(final)
 filtered_list3 = [item for item in finallist if item is not None]
 
+finalstring = listtostring(filtered_list3)                                                  #converting list to string 
 
-print("ENCODED : " , filtered_list3)
+print("ENCODED : " , finalstring)
