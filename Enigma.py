@@ -1,6 +1,5 @@
-#0.0.1v creator AMIR 
+#1.0.2v creator MOHD AMIR
 #This program is simulatoin of Enigma machine 
-#If u dont know about Enigma machine dont try to use this program 
 #Github : https://github.com/amirdevlops/EnigmaMachine/
 
 #<----------------------**ALGORITHEM**---------------------------->#
@@ -24,20 +23,41 @@
 print("<<--------------------------------Enigma Machine-------------------------------->>")
 print("This program is the semulation Of ENIGMA MACHINE")
 
+print("""
+/***
+ *     /$$$$$$$$           /$$                                         /$$      /$$                     /$$       /$$                          
+ *    | $$_____/          |__/                                        | $$$    /$$$                    | $$      |__/                          
+ *    | $$       /$$$$$$$  /$$  /$$$$$$  /$$$$$$/$$$$   /$$$$$$       | $$$$  /$$$$  /$$$$$$   /$$$$$$$| $$$$$$$  /$$ /$$$$$$$   /$$$$$$       
+ *    | $$$$$   | $$__  $$| $$ /$$__  $$| $$_  $$_  $$ |____  $$      | $$ $$/$$ $$ |____  $$ /$$_____/| $$__  $$| $$| $$__  $$ /$$__  $$      
+ *    | $$__/   | $$  \ $$| $$| $$  \ $$| $$ \ $$ \ $$  /$$$$$$$      | $$  $$$| $$  /$$$$$$$| $$      | $$  \ $$| $$| $$  \ $$| $$$$$$$$      
+ *    | $$      | $$  | $$| $$| $$  | $$| $$ | $$ | $$ /$$__  $$      | $$\  $ | $$ /$$__  $$| $$      | $$  | $$| $$| $$  | $$| $$_____/      
+ *    | $$$$$$$$| $$  | $$| $$|  $$$$$$$| $$ | $$ | $$|  $$$$$$$      | $$ \/  | $$|  $$$$$$$|  $$$$$$$| $$  | $$| $$| $$  | $$|  $$$$$$$      
+ *    |________/|__/  |__/|__/ \____  $$|__/ |__/ |__/ \_______/      |__/     |__/ \_______/ \_______/|__/  |__/|__/|__/  |__/ \_______/      
+ *                             /$$  \ $$                                                                                                       
+ *                            |  $$$$$$/                                                                                                       
+ *                             \______/                                                                                                        
+ */
+""")
+
+
+
 #variables 
 
-finalstring = ""
+
 arr = []
 PlugBoardlist = []
 Roteres_list = []
 rotortworeslist = []
 rotorthreecharlist = []
 finallist = []
-
+R3ReverseList =[]
+R2ReverseList =[]
+R1ReverseList =[]
+RtoPlugboard = []
 #settings 
 listofplugbords = ["a" , "o" , "i" , "r", "q" , "v" , "c" , "z" ,"k" , "s"]
 print(listofplugbords , " : PlugBoard Setting ")
-listofencryptedplugboards = ["j" , "l" , "x" , "t" , "h" , "f" , " w" , "t", "n" , "d"]
+listofencryptedplugboards = ["j" , "l" , "x" , "t" , "h" , "f" , "w" , "t", "n" , "d"]
 print( listofencryptedplugboards , " : Encrypted PlugBoard")
 a = 5
 b = 24
@@ -49,7 +69,7 @@ g = 12
 h = 6
 i = 18
 j = 10
-k = 26
+k = 25
 l =  8
 m = 14
 n = 15
@@ -76,8 +96,8 @@ et = 19
 ft = 16
 gt = 9
 ht = 24
-kt = 13
 it = 21
+kt = 13
 jt = 6
 lt = 8
 mt = 23
@@ -127,16 +147,6 @@ zthree = 7
 
 print(athree , bthree , cthree , dthree , ethree , fthree,  gthree , hthree, kthree , ithree, jthree, lthree, mthree, nthree, othree, pthree,qthree, rthree, sthree, tthree, uthree, vthree, wthree, xthree , ythree, zthree ,": Rotor 3 NUM")
 #Functions
-
-
-#this is simple function which converts list to string 
-
-def listtostring(l):
-    emptystring = ""
-    for word in l :
-        emptystring += word
-    return emptystring
-
 
 def PlugBoard(a):
     
@@ -330,7 +340,7 @@ def incremnttwo():
     kt =  kt + 1
     if(kt == 26):
         kt = 0
-        incremnthree()                      #classing this to increament the thredrotor 
+        incremnthree()                      # calling an function increamentthree() which will increamnet are thard rotor
     lt =  lt + 1
     if(lt == 26):
         lt = 0
@@ -496,6 +506,7 @@ def incremnthree():
 def rotorone(rone):
     
     rouoronelist = ["m" , "x" ,"t" , "l" , "h" , "v" , "o" , "p", "z" , "n" , "b" , "c" , "e" , "k" , "u" , "f" , "k" , "i" , "y", "d" , "g" , "q" , "s" , "t" , "w" , "a"]
+    
 
 
     if(rone == "a"):
@@ -513,7 +524,9 @@ def rotorone(rone):
         return rouoronelist[f]
     if(rone == "g"):
         return rouoronelist[g]
+        
     if(rone == "h"):
+        
         return rouoronelist[h]
     if(rone == "k"):
         return rouoronelist[k]
@@ -687,11 +700,13 @@ def rotorthree(rthreeInput):
 
 #Main body 
 
-userInput = input("Enter Your String To Encode : ")
+stringwithspace = input("Enter Your String To Encode : ")
+
+userInput = "".join(stringwithspace.split())
 
 
-
-for userip in userInput:         # converting user input into an array 
+    
+for userip in userInput:         # converting user input into an list
     arr.append(userip)
 
 
@@ -709,36 +724,37 @@ filtered_list = [item for item in PlugBoardlist if item is not None] #removing n
 
 for lenoffilterlist in range(len(filtered_list)):
     
-    #print(filtered_list[lenoffilterlist] , " : Filterd list")
     Roteres = rotorone(filtered_list[lenoffilterlist])
-    incremnt()
+    incremnt() # this is an incremnt() function which will incrment all the rotors value 
 
-    #print(Roteres, "Rotor 1 response")
     Roteres_list.append(Roteres)
 
 for test in range(len(Roteres_list)):
-    print(Roteres_list[test] , " : From rotor 1 ")
+    
     rotortwores = rotortwo(Roteres_list[test])
-    print(Roteres_list[test], " : Sent to Rotor 2")
-    print(rotortwores , " : From rotor 2 ")
     rotortworeslist.append(rotortwores)
 
 for charinrtwo in range(len(rotortworeslist)):
-    print(rotortworeslist[charinrtwo] ," : thats rotor two response")
+   
     rotorthreeresponse = rotorthree(rotortworeslist[charinrtwo])
-    print(rotortworeslist[charinrtwo] , ": this is pass to rotor three")
-    print(rotorthreeresponse , ": this rotor three reponse ")
     rotorthreecharlist.append(rotorthreeresponse)
 
-for charinrthreeres in range(len(rotorthreecharlist)):
-    final = PlugBoard(rotorthreecharlist[charinrthreeres])
+for R3R in range(len(rotorthreecharlist)):
+    R3Rres = rotorthree((rotorthreecharlist[R3R]))
+    R2Rres = rotortwo(R3Rres)
+    R1Rres = rotorone(R2Rres)
+    RtoPlugboard.append(R1Rres)
+
+
+for charinrthreeres in range(len(RtoPlugboard)):
+    final = PlugBoard(RtoPlugboard[charinrthreeres])
 
     if not final:
-        finallist.append(rotorthreecharlist[charinrthreeres])
+        finallist.append(RtoPlugboard[charinrthreeres])
     
     finallist.append(final)
-filtered_list3 = [item for item in finallist if item is not None]
+filtered_list3 = [item for item in finallist if item is not None] 
 
-finalstring = listtostring(filtered_list3)                                                  #converting list to string 
+FINAL =''.join(map(str,filtered_list3))
+print("Encoded string : ",FINAL)
 
-print("ENCODED : " , finalstring)
