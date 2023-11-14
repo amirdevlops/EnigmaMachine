@@ -153,7 +153,7 @@ def PlugBoard(a):
     for P in range(len(listofplugbords)):
         
         if(a == listofplugbords[P]):
-            print(f"Match has been founded : {listofplugbords[P]} & the match is : {listofencryptedplugboards[P]}")
+            
             
             return listofencryptedplugboards[P]     #bracking this loop if the match if is found 
 
